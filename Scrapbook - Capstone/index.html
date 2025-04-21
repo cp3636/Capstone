@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clarissa's Scrapbook</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@1,500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  </head>
+  <body>
+    <section id="cover-page" class="cover-page">
+      <div class="cover-content">
+        <h1>Our Red String</h1>
+        <p>
+          Follow the story of two families coming together through two adoption
+          trips, one in 2000 and again in 2004. This interactive scrapbook is
+          inspired by the ones my mom made after each journey she filled with
+          photos and notes during their travels.
+        </p>
+        <button id="enter-button">Enter</button>
+      </div>
+    </section>
+    <header class="hero-section">
+      <div class="hero-text">
+        <h1 class="hero-heading">Our Red String</h1>
+        <p>
+          Follow the story of two families coming together through two adoption
+          trips, one in 2000 and again in 2004. This interactive scrapbook is
+          inspired by the ones my mom made after each journey she filled with
+          photos and notes during their travels.
+        </p>
+      </div>
+    </header>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#interview1" data-hover="Paula">Paula</a></li>
+        <li>
+          <a href="#memories" data-hover="Pack the suitcase">Pack a suitcase</a>
+        </li>
+        <li><a href="#map-container" data-hover="Map">Map</a></li>
+        <li><a href="#interview2" data-hover="Marvin">Marvin</a></li>
+        <li><a href="#interview3" data-hover="Roza">Roza</a></li>
+        <li><a href="#gallery" data-hover="Gallery">Gallery</a></li>
+      </ul>
+    </nav>
+
+    <section class="intro-section">
+      <div class="intro-inner">
+        <div class="intro-video">
+          <div style="padding: 56.25% 0 0 0; position: relative">
+            <iframe
+              src="https://player.vimeo.com/video/1073254202?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+              frameborder="0"
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+              style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+              "
+              title="Intro"
+            ></iframe>
+          </div>
+        </div>
+
+        <div class="intro-text">
+          <h1>Intro Video</h1>
+          <p>
+            Watch how it all started. Two families connected by a shared
+            experience and a red string—the idea that some people are meant to
+            find each other.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div id="stringContainer">
+      <svg id="stringSvg"></svg>
+
+      <section id="interview1" class="reveal interview right">
+        <div class="interview-video-wrapper">
+          <div class="video-embed">
+            <iframe
+              src="https://player.vimeo.com/video/1073270794?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+              frameborder="0"
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+              title="Interview 1"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+        </div>
+        <div class="caption-video-wrapper">
+          <div class="caption-video left">
+            <p>
+              Interview 1: Paula’s recount of her first trip to China with
+              Jeremy.
+            </p>
+          </div>
+        </div>
+      </section>
+      <div class="caption">
+        <p>
+          First trip to China in 2000, where the Paces and the Wladis first met.
+          On this trip, the Paces adopted their first daughter, Celeste, and the
+          Wladises adopted their first daughter, Kenna.
+        </p>
+      </div>
+      <section class="reveal cluster right">
+        <div class="photo-wrapper">
+          <img
+            class="image"
+            src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/Celeste.png?v=1744305859123.jpg"
+          />
+        </div>
+
+        <div class="photo-wrapper taped">
+          <img
+            class="image"
+            src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/0-32.jpg?v=1744306083328.jpg"
+          />
+          <div class="tape-text">Kenna (far left) and Celeste (far right)</div>
+        </div>
+
+        <div class="photo-wrapper taped">
+          <img
+            class="image"
+            src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/Celeste--family%20meal.jpeg?v=1744306194358.jpg"
+          />
+          <div class="tape-text">
+            Roza, Celeste, Marvin at a White Swan hotel restaurant
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- Puzzle Section -->
+    <div class="puzzle-wrapper">
+      <section id="memories" class="reveal">
+        <div class="caption">
+          <p>
+            Each item holds a piece of the story, pack the suitcase to discover
+            their meaning.
+          </p>
+        </div>
+
+        <div class="puzzle-container">
+          <div id="suitcase">
+            <img
+              src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/luggage.png?v=1744911883878"
+              alt="Suitcase"
+            />
+          </div>
+
+          <img
+            src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/camera.png?v=1744911879915"
+            class="shape camera"
+            data-shape="camera"
+            alt="Camera"
+          />
+          <img
+            src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/onesie.png?v=1744911885527"
+            class="shape onesie"
+            data-shape="onesie"
+            alt="Onesie"
+          />
+          <img
+            src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/shoe.png?v=1744911886910"
+            class="shape sandal"
+            data-shape="sandal"
+            alt="Sandal"
+          />
+        </div>
+
+        <div class="info-container">
+          <div class="info" id="info-camera">
+            Camera: Both families unknowingly brought the exact same camcorder
+            on their first trip to China.
+          </div>
+          <div class="info" id="info-onesie">
+            Onesie: Without planning it, Paula and Roza both bought the same
+            pink flower onesie from the GAP for their daughters. A coincidence
+            that is really cute.
+          </div>
+          <div class="info" id="info-sandal">
+            Sandal: Paula and Roza both so happened to be wearing the same wedge
+            sandals when they met in China during their first trip.
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Interview 2 Section -->
+    <section id="interview2" class="reveal interview right">
+      <div class="interview-video-wrapper">
+        <div class="video-embed">
+          <iframe
+            src="https://player.vimeo.com/video/1073270320?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+            title="Interview 2"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+      <div class="caption-video-wrapper">
+        <div class="caption-video left">
+          <p>Interview 2: Marvin’s memories of the adoption trip.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="note-box">
+      <p>
+        Since I was only 18 months old when my parents adopted me, I don’t
+        remember anything from that time. It’s been really special to see the
+        pieces of their journey come together in a way I’ve never fully
+        understood before. The map below shows the two main places the Paces and
+        the Wladises traveled to during each trip. Seeing it visually laid out
+        helped me connect the dots between the stories I’ve heard and the places
+        they traveled to.<br />
+        —Clarissa
+      </p>
+    </div>
+    <section class="reveal">
+      <div id="map-container">
+        <div id="map"></div>
+      </div>
+    </section>
+
+    <div class="note-box">
+      <p>
+        Interviewing my parents was a fun way to hear the adoption story from
+        each of their points of view. I was surprised by how much they
+        remembered, and how some of my questions brought up things they hadn’t
+        thought about in years.
+        <br />
+        - Clarissa
+      </p>
+    </div>
+
+    <section id="interview3" class="reveal interview left">
+      <div class="interview-video-wrapper">
+        <div class="video-embed">
+          <iframe
+            src="https://player.vimeo.com/video/1073271843?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+            title="Interview 3"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+      </div>
+      <div class="caption-video-wrapper">
+        <div class="caption-video left">
+          <p>Interview 3: Roza's memories of the adoption trip.</p>
+        </div>
+      </div>
+    </section>
+    <div class="caption">
+      <p>
+        In 2004, both families returned to China, this time traveling to Hunan,
+        where the Paces adopted Clarissa and the Wladises adopted Rose.
+      </p>
+    </div>
+    <section class="reveal cluster right">
+      <div class="photo-wrapper">
+        <img
+          class="top-image"
+          src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/2.png?v=1745071672505"
+          alt="Scrapbook Title Image"
+        />
+        <div class="tape-text">Roza, Celeste, Marvin</div>
+      </div>
+
+      <div class="photo-wrapper taped">
+        <img
+          class="image"
+          src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/0-33.jpg?v=1745071432628"
+        />
+        <div class="tape-text">Paula and Rose</div>
+      </div>
+
+      <div class="photo-wrapper taped">
+        <img
+          class="image"
+          src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/0-13.jpg?v=1743703450346"
+        />
+        <div class="tape-text">Kenna, Clarissa, Celeste</div>
+      </div>
+    </section>
+
+    <div class="note-box">
+      <p>
+        Looking through all these old photos helped my parents remember little
+        details from the trips. Everyone has their own way of documenting things
+        and this is mine. I wanted to take what my mom started with her
+        scrapbooks and update it by mixing in photos, videos, voice, and text to
+        tell the story in a more interactive way.<br />
+        —Clarissa
+      </p>
+    </div>
+    <section id="interview4" class="reveal interview right">
+      <div class="interview-video-wrapper">
+        <div class="video-embed">
+          <iframe
+            src="https://player.vimeo.com/video/1073270320?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+            title="Interview 4"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+      </div>
+      <div class="caption-video-wrapper">
+        <div class="caption-video left">
+          <p>Interview 4: Jeremy’s memories of the adoption trip.</p>
+        </div>
+      </div>
+    </section>
+    <div class="caption">
+      <p>
+        Between the two trips, PopPop, Paula’s dad, found out that Celeste and
+        Kenna had actually been cribmates at their orphanage.
+      </p>
+    </div>
+    <section class="reveal cluster-letters">
+      <div class="top-image-wrapper">
+        <img
+          class="image"
+          src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/Celeste-15.jpeg?v=1745249391637"
+        />
+        <div class="tape-text">Celeste and Kenna</div>
+      </div>
+
+      <div class="letter-row">
+        <div class="photo-wrapper letter">
+          <img
+            class="image2"
+            src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/celesteletter1.png?v=1745073361042"
+            alt="Celeste Letter 1"
+          />
+          <div class="tape-text">Celeste Letter 1</div>
+        </div>
+
+        <div class="photo-wrapper letter">
+          <img
+            class="image2"
+            src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/celesteletter2.png?v=1745073363560"
+            alt="Celeste Letter 2"
+          />
+          <div class="tape-text">Celeste Letter 2</div>
+        </div>
+      </div>
+    </section>
+    <section class="hero-footer">
+      <div class="hero-image">
+        <img
+          src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/0-15.jpg?v=1743703432513"
+          alt="Clarissa walking"
+        />
+        <img
+          src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/pushpin.png?v=1744913430096"
+          alt="Pin"
+          class="pin"
+        />
+        <p class="thank-you">Thank you for following along!</p>
+      </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+      <h2 class="gallery-heading">Scrapbook Gallery</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img
+            src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/0-9.jpg?v=1743703443495"
+            alt="Celeste & Clarissa"
+          />
+          <p>Celeste [&] Clarissa</p>
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/0-10.jpg?v=1743703446647"
+            alt="Clarissa & Roza"
+          />
+          <p>Clarissa [&] Roza</p>
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/0-12.jpg?v=1743703541644"
+            alt="Clarissa, Celeste & Kenna"
+          />
+          <p>Paula and Roza with the girls</p>
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/Celeste--first%20birthday.jpeg?v=1743703505825"
+            alt="Celeste's Birthday"
+          />
+          <p>Celeste's first Birthday</p>
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/Celeste--White%20Swan%20waterfall.jpeg?v=1744306031857"
+            alt="Celeste's Birthday"
+          />
+          <p>Waterfall at the White Swan</p>
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/0-28.jpg?v=1745075766254"
+            alt="Celeste's Birthday"
+          />
+          <p>Celeste & Kenna with Cherish Children Adoption International</p>
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/0-27.jpg?v=1745199803212"
+            alt="Celeste's Birthday"
+          />
+          <p>Roza and Clarissa flying home</p>
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/Celeste--Call%20home%201.jpeg?v=1745199829443"
+            alt="Celeste's Birthday"
+          />
+          <p>Roza and Celeste</p>
+        </div>
+
+        <div class="gallery-item">
+          <img
+            src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/0-18.jpg?v=1745199814578"
+            alt="Celeste's Birthday"
+          />
+          <p>Paces infront of a temple</p>
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/Celeste--pagoda.jpeg?v=1745247483984"
+            alt="Celeste's Birthday"
+          />
+          <p>Celeste and Roza at a pagoda</p>
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/0-23.jpg?v=1745200327469"
+            alt="Celeste's Birthday"
+          />
+          <p>Roza receiving info about Clarissa from FedEx</p>
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/Dziadek?v=1745249743989"
+            alt="Celeste's Birthday"
+          />
+          <p>Roza's dad holding photos of Celeste</p>
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/0-25.jpg?v=1745200315388"
+            alt="Celeste's Birthday"
+          />
+          <p>Parents at the airport</p>
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/Clarissa--signing%20the%20papers.jpeg?v=1745200284352"
+            alt="Celeste's Birthday"
+          />
+          <p>Paces signing adoption papers</p>
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/Clarissa--group%20meal.jpeg?v=1745200345427"
+            alt="Celeste's Birthday"
+          />
+          <p>Parents and kids at a restaurant</p>
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://cdn.glitch.global/db7855d8-eb16-4e06-a21b-eb7ed04586cf/0-21.jpg?v=1745199853718"
+            alt="Celeste's Birthday"
+          />
+          <p>Parents waiting for bus</p>
+        </div>
+
+        <div class="gallery-item empty"></div>
+        <div class="gallery-item empty"></div>
+        <div class="gallery-item empty"></div>
+        <div class="gallery-item empty"></div>
+        <div class="gallery-item empty"></div>
+        <div class="gallery-item empty"></div>
+        <div class="gallery-item empty"></div>
+        <div class="gallery-item empty"></div>
+        <div class="gallery-item empty"></div>
+        <div class="gallery-item empty"></div>
+        <div class="gallery-item empty"></div>
+        <div class="gallery-item empty"></div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
